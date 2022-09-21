@@ -1,6 +1,7 @@
 package tnv.springframework.springwebapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,13 +16,13 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> bookList;
+    private Set<Book> bookList = new HashSet<>();
 
 
-    public Author(String firstName, String lastName, Set<Book> bookList) {
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.bookList = bookList;
+
     }
 
     public String getFirstName() {
